@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anion™ — Where experiences connect us</title>
+<meta name="description" content="Anion™ creates experiences designed to bring people into meaningful connection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --obsidian:#171614;
+  --ivory:#F5F0E8;
+  --sandstone:#C9B9A3;
+  --umber:#5A4032;
+  --gold:#B18A4A;
+  --terracotta:#A85C45;
+  --serif:'Instrument Serif','Iowan Old Style','Palatino Linotype',Georgia,serif;
+  --sans:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --pad-x:clamp(1.25rem,5vw,4.5rem);
+  --pad-y:clamp(5rem,12vw,10.5rem);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--obsidian);color:var(--obsidian);
+  font-family:var(--sans);font-size:1.0625rem;line-height:1.6;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,p{margin:0}
+button,input,textarea{font:inherit;color:inherit}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+
+.grain::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.09;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad-x);position:relative;z-index:1}
+.wordmark{font-family:var(--serif);font-size:1.6rem;letter-spacing:.34em;text-transform:uppercase;text-decoration:none;line-height:1}
+.btn{
+  display:inline-block;position:relative;padding:1.05rem 2.1rem;border:1px solid var(--obsidian);
+  background:var(--obsidian);color:var(--ivory);text-decoration:none;font-weight:500;letter-spacing:.02em;
+  cursor:pointer;overflow:hidden;transition:border-color .3s,color .3s;
+}
+.btn::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.btn:hover::after,.btn:focus-visible::after{transform:scaleX(1)}
+.btn:hover{border-color:var(--gold)}
+.btn.light{background:transparent;border-color:rgba(245,240,232,.5);color:var(--ivory)}
+.btn.light:hover{border-color:var(--gold)}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;min-height:100vh;background:var(--obsidian);color:var(--ivory);overflow:hidden;display:flex;flex-direction:column}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+.hero-top{display:flex;justify-content:space-between;align-items:center;padding:2rem var(--pad-x);position:relative;z-index:2}
+.hero-top a.link{font-size:.95rem;text-decoration:none;padding-bottom:3px;border-bottom:1px solid rgba(177,138,74,.6);transition:border-color .3s}
+.hero-top a.link:hover{border-color:var(--ivory)}
+.hero-body{margin-top:auto;padding:0 var(--pad-x) clamp(2.5rem,6vw,5rem);position:relative;z-index:2;max-width:1400px;width:100%}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3.1rem,9.4vw,9rem);line-height:.96;letter-spacing:-.02em;max-width:11.5em;animation:rise 1.6s .25s cubic-bezier(.2,.7,.2,1) both}
+.hero-sub{display:flex;flex-wrap:wrap;gap:1.5rem 4rem;justify-content:space-between;align-items:flex-end;margin-top:clamp(1.75rem,4vw,3.25rem);padding-top:1.5rem;border-top:1px solid rgba(177,138,74,.55);animation:rise 1.6s .8s cubic-bezier(.2,.7,.2,1) both}
+.hero-sub p{max-width:30rem;color:rgba(245,240,232,.82)}
+.hint{font-size:.9rem;color:rgba(245,240,232,.62);display:flex;align-items:center;gap:.7rem}
+.hint i{width:7px;height:7px;border-radius:50%;background:var(--terracotta);display:inline-block}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+/* JOURNEY */
+.ivory{background:var(--ivory);color:var(--obsidian)}
+section{position:relative}
+.journey{padding:var(--pad-y) 0}
+.lede{font-family:var(--serif);font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.12;letter-spacing:-.01em;max-width:18em;color:var(--obsidian)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,13rem),1fr));gap:0 1.5rem;margin-top:clamp(3rem,7vw,6rem)}
+.step{background:none;border:0;text-align:left;padding:1.5rem 0 1.4rem;cursor:pointer;position:relative;color:var(--umber);opacity:.62;transition:opacity .4s,color .4s;border-top:1px solid rgba(90,64,50,.28)}
+.step span{font-family:var(--serif);font-size:clamp(1.9rem,3.7vw,3.3rem);line-height:1;display:block}
+.step::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.step.done::before,.step[aria-selected="true"]::before{transform:scaleX(1)}
+.step[aria-selected="true"]{opacity:1;color:var(--obsidian)}
+.step:hover{opacity:1}
+.step-text{margin-top:clamp(2rem,4vw,3rem);font-size:clamp(1.15rem,1.8vw,1.4rem);max-width:34rem;min-height:4.8em;color:var(--umber)}
+
+/* PRINCIPLES */
+.principles{background:var(--sandstone);padding:var(--pad-y) 0;overflow:hidden}
+.principles .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(2rem,6vw,6rem)}
+.principles h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,4.6vw,4rem);line-height:1.04;letter-spacing:-.01em;position:sticky;top:3rem;align-self:start}
+.principle{padding:2rem 0 2.4rem;border-top:1px solid rgba(23,22,20,.28);position:relative}
+.principle:last-child{border-bottom:1px solid rgba(23,22,20,.28)}
+.principle h3{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,5.2rem);line-height:1;letter-spacing:-.015em;display:flex;align-items:center;gap:1rem;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.principle h3::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--terracotta);transform:scale(0);transition:transform .4s;flex:none}
+.principle:hover h3{transform:translateX(.4rem)}
+.principle:hover h3::before{transform:scale(1)}
+.principle p{margin-top:1rem;max-width:30rem;color:var(--obsidian);font-size:1.12rem}
+
+/* VOICES */
+.voices{background:var(--umber);color:var(--ivory);padding:var(--pad-y) 0;overflow:hidden}
+.voices small{display:block;font-size:.95rem;color:rgba(245,240,232,.75);margin-bottom:2.25rem}
+.quote{font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,6.8vw,6.4rem);line-height:1.02;letter-spacing:-.015em;max-width:13em;min-height:3.1em;transition:opacity .45s,transform .45s}
+.quote.out{opacity:0;transform:translateY(12px)}
+.dots{display:flex;gap:.9rem;margin-top:2.5rem}
+.dots button{width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative;padding:0}
+.dots button::before{content:"";position:absolute;left:6px;right:6px;top:50%;height:1px;background:rgba(245,240,232,.4);transition:background .3s,height .3s}
+.dots button[aria-current="true"]::before{background:var(--gold);height:3px}
+.dots button:hover::before{background:var(--ivory)}
+
+/* PASS IT FORWARD */
+.pass{background:var(--obsidian);color:var(--ivory);padding:var(--pad-y) 0;overflow:hidden}
+.pass .wrap{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(2.5rem,6vw,6rem);align-items:start}
+.pass h2{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7.6vw,7rem);line-height:.95;letter-spacing:-.02em}
+.pass .tag{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.6vw,2.2rem);margin-top:1.25rem;color:var(--sandstone)}
+.pass .def{margin-top:1.75rem;max-width:32rem;color:rgba(245,240,232,.84)}
+.builder{margin-top:2.75rem;max-width:34rem}
+.builder h3{font-size:1rem;font-weight:500;margin-bottom:1.1rem;color:var(--ivory)}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:2rem}
+.chip{border:1px solid rgba(245,240,232,.4);background:none;padding:.6rem 1.15rem;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:.55rem;transition:background .3s,color .3s,border-color .3s}
+.chip:hover{border-color:var(--gold)}
+.chip[aria-checked="true"]{background:var(--ivory);color:var(--obsidian);border-color:var(--ivory)}
+.chip[aria-checked="true"]::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--terracotta)}
+.field{display:block;margin-bottom:1.6rem}
+.field span{display:block;font-size:.92rem;color:rgba(245,240,232,.75);margin-bottom:.4rem}
+.field input,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(245,240,232,.45);padding:.6rem 0;color:var(--ivory);border-radius:0;resize:none;font-size:1.1rem}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field input::placeholder,.field textarea::placeholder{color:rgba(245,240,232,.4)}
+.copyrow{display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.status{font-size:.95rem;color:var(--sandstone)}
+
+.card{position:relative;background:var(--ivory);color:var(--obsidian);padding:clamp(2rem,4vw,3.25rem);min-height:26rem;display:flex;flex-direction:column;justify-content:space-between;transform:rotate(1.2deg);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)}
+.card::before{content:"";position:absolute;inset:12px;border:1px solid var(--gold);opacity:.75;pointer-events:none}
+.card .to{font-size:.95rem;color:var(--umber)}
+.card .who{font-family:var(--serif);font-size:clamp(2.4rem,4.6vw,3.8rem);line-height:1;margin-top:.35rem;word-break:break-word}
+.card .line{font-family:var(--serif);font-size:clamp(1.55rem,2.6vw,2.2rem);line-height:1.15;margin-top:1.6rem}
+.card .note{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.3;margin-top:1.1rem;color:var(--umber);word-break:break-word}
+.card .sig{margin-top:2.25rem;font-size:.92rem;color:var(--umber);display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.card .sig b{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:var(--obsidian)}
+
+/* ADDITIONS: hero + shared */
+.hero-copy{max-width:34rem}
+.hero-tag{font-family:var(--serif);font-style:italic;font-size:1.55rem;color:var(--sandstone);margin-bottom:.6rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.6rem}
+.btn.ivory{background:var(--ivory);border-color:var(--ivory);color:var(--obsidian)}
+.btn.ivory:hover{border-color:var(--gold)}
+.hero-top nav{display:flex;gap:1.75rem;align-items:center}
+.triplet{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,2.1vw,1.7rem);color:var(--umber);line-height:1.35;margin-bottom:clamp(2.25rem,4.5vw,3.75rem)}
+.triplet span{display:block}
+.def2{margin-top:1.1rem;max-width:32rem;font-family:var(--serif);font-style:italic;font-size:1.45rem;color:var(--sandstone)}
+.pass-cta{margin-top:1.75rem}
+.link-btn{background:none;border:0;padding:0 0 3px;cursor:pointer;color:var(--umber);border-bottom:1px solid var(--gold);font-weight:500;transition:color .3s}
+.link-btn:hover{color:var(--obsidian)}
+.chips.ivory .chip{border-color:rgba(23,22,20,.4);color:var(--obsidian)}
+.chips.ivory .chip:hover{border-color:var(--gold)}
+.chips.ivory .chip[aria-checked="true"]{background:var(--obsidian);color:var(--ivory);border-color:var(--obsidian)}
+
+/* GIVE: The First Table */
+.give{padding:var(--pad-y) 0}
+.give-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:2rem clamp(2rem,6vw,6rem);align-items:end}
+.give h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6.2vw,5.8rem);line-height:.98;letter-spacing:-.02em}
+.give-sub{margin-top:1.5rem;max-width:34rem;font-size:1.15rem;color:var(--umber)}
+.price{font-family:var(--serif);font-size:clamp(5rem,12vw,10rem);line-height:.85;letter-spacing:-.03em;text-align:right}
+.price small{display:block;font-family:var(--sans);font-size:1rem;letter-spacing:0;margin-top:.9rem;color:var(--umber)}
+.wiz{margin-top:clamp(3rem,6vw,5rem);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(2rem,5vw,5rem)}
+.wiz-tabs{display:flex;flex-direction:column;align-self:start}
+.wtab{text-align:left;background:none;border:0;border-top:1px solid rgba(90,64,50,.28);padding:1.15rem 0;cursor:pointer;color:var(--umber);opacity:.6;font-family:var(--serif);font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.1;position:relative;transition:opacity .3s}
+.wtab::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.wtab[aria-selected="true"]{opacity:1;color:var(--obsidian)}
+.wtab[aria-selected="true"]::before,.wtab.done::before{transform:scaleX(1)}
+.wtab:hover{opacity:1}
+.wpanel{min-height:22rem}
+.wpanel[hidden]{display:none}
+.wpanel h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.08;letter-spacing:-.01em;margin-bottom:1.75rem;max-width:20em}
+.wpanel .chips{margin-bottom:1.75rem}
+.wfield{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(90,64,50,.6);padding:.7rem 0;color:var(--obsidian);resize:none;font-size:1.15rem;border-radius:0}
+.wfield:focus{outline:none;border-color:var(--gold)}
+.wfield::placeholder{color:rgba(90,64,50,.6)}
+.examples{display:flex;flex-direction:column;align-items:flex-start;gap:.7rem;margin:1.4rem 0 1.75rem}
+.examples .link-btn{text-align:left;font-weight:400;font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.3;border-bottom-color:rgba(177,138,74,.7)}
+.pay-big{font-family:var(--serif);font-size:clamp(3.4rem,8vw,6.4rem);line-height:.9;margin:.4rem 0 1.25rem}
+.pay-sum{color:var(--umber);margin-bottom:1.75rem;max-width:34rem;word-break:break-word}
+.fine-print{margin-top:1rem;font-size:.92rem;color:var(--umber);max-width:30rem}
+.invite{position:relative;background:var(--obsidian);color:var(--ivory);padding:clamp(1.75rem,4vw,3rem);max-width:34rem}
+.invite::before{content:"";position:absolute;inset:10px;border:1px solid var(--gold);opacity:.7;pointer-events:none}
+.invite h4{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.6rem);line-height:1.08;margin:0 0 1rem}
+.invite p{color:rgba(245,240,232,.85)}
+.invite .btn{margin-top:1.75rem}
+.invite .msg{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--sandstone);margin-top:1.25rem;word-break:break-word}
+.types{margin-top:clamp(4.5rem,9vw,8rem)}
+.types h3{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4.2vw,3.5rem);line-height:1.05;letter-spacing:-.01em;max-width:14em}
+.type-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:0 3rem;margin-top:2.5rem}
+.type{border-top:1px solid rgba(90,64,50,.3);padding:1.5rem 0 2.4rem}
+.type h4{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.4vw,2.8rem);line-height:1;margin:0 0 .8rem}
+.type p{color:var(--umber);max-width:26rem}
+
+/* LEVELS */
+.levels{background:var(--obsidian);color:var(--ivory);padding:var(--pad-y) 0;overflow:hidden}
+.levels h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.6rem,6vw,5.4rem);line-height:1;letter-spacing:-.02em;max-width:12em}
+.levels .intro{margin-top:1.25rem;max-width:32rem;color:rgba(245,240,232,.8)}
+.slide{margin:clamp(2.5rem,5vw,4rem) 0 clamp(2rem,4vw,3rem);max-width:44rem}
+.slide label{display:block;font-size:.95rem;color:rgba(245,240,232,.75);margin-bottom:.9rem}
+.slide input[type=range]{width:100%;accent-color:var(--gold);height:28px;cursor:pointer;background:transparent}
+.readout{font-family:var(--serif);font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.1;margin-top:.5rem}
+.readout-note{color:var(--sandstone);margin-top:.4rem;min-height:1.6em}
+.lvl{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,3fr) minmax(0,6fr);gap:.5rem 2rem;align-items:baseline;padding:1.7rem 0;border-top:1px solid rgba(177,138,74,.4);opacity:.5;transition:opacity .4s}
+.lvl:last-child{border-bottom:1px solid rgba(177,138,74,.4)}
+.lvl.on,.lvl:hover{opacity:1}
+.lvl .tier{color:var(--gold);font-weight:500;letter-spacing:.04em}
+.lvl .amt{font-family:var(--serif);font-size:clamp(2rem,4.6vw,3.9rem);line-height:1}
+.lvl p{color:rgba(245,240,232,.85)}
+.lvl p b{font-weight:500;color:var(--ivory)}
+
+.lvl-btn{margin-top:1rem;padding:.7rem 1.4rem;font-size:.95rem}
+.lvl p b{display:inline}
+/* WHAT IF */
+.whatif{background:var(--obsidian);color:var(--ivory);padding:var(--pad-y) 0;overflow:hidden}
+.whatif h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.8rem,8vw,7.6rem);line-height:.95;letter-spacing:-.02em;max-width:11em}
+.whatif h2 span{display:block;font-style:italic;color:var(--sandstone)}
+.reel{display:flex;gap:1.25rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 0 1.5rem;margin-top:clamp(2.5rem,5vw,4rem);scrollbar-width:thin;scrollbar-color:var(--gold) transparent}
+.scene{flex:0 0 min(76vw,300px);scroll-snap-align:start}
+.scene .art{aspect-ratio:3/4;background:radial-gradient(120% 90% at 50% 38%,#2b2722 0%,var(--obsidian) 72%);border:1px solid rgba(177,138,74,.45);position:relative;overflow:hidden}
+.scene svg{display:block;width:100%;height:100%}
+.scene p{margin-top:1rem;font-family:var(--serif);font-size:1.4rem;line-height:1.2}
+.reel-ctl{display:flex;gap:.75rem;align-items:center;margin-top:1rem}
+.reel-ctl button{width:48px;height:48px;border-radius:50%;border:1px solid rgba(245,240,232,.45);background:none;color:var(--ivory);cursor:pointer;font-size:1.2rem;transition:border-color .3s}
+.reel-ctl button:hover{border-color:var(--gold)}
+.that{font-family:var(--serif);font-size:clamp(3rem,9vw,8rem);line-height:.95;letter-spacing:-.02em;margin-top:clamp(3rem,6vw,5rem)}
+
+@media (max-width:860px){
+  .give-head,.wiz{grid-template-columns:minmax(0,1fr)}
+  .price{text-align:left}
+  .lvl{grid-template-columns:minmax(0,1fr)}
+  .wiz-tabs{flex-direction:row;flex-wrap:wrap;gap:0 1.5rem}
+  .wtab{flex:1 1 40%}
+}
+
+/* CLOSING */
+.closing{padding:var(--pad-y) 0 calc(var(--pad-y) * .8)}
+.closing h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.7rem,7.2vw,6.8rem);line-height:1;letter-spacing:-.02em;max-width:12em}
+.closing h2 span{display:block;color:var(--umber)}
+.closing .row{margin-top:clamp(2.5rem,5vw,4rem);display:flex;flex-wrap:wrap;gap:1.5rem 3rem;align-items:center}
+.closing .row p{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--umber)}
+
+footer{background:var(--obsidian);color:var(--ivory);padding:clamp(3.5rem,8vw,6rem) 0 2.5rem;position:relative;overflow:hidden}
+footer .big{font-family:var(--serif);font-size:clamp(3.2rem,16vw,15rem);letter-spacing:.14em;line-height:.9;text-transform:uppercase;margin-left:-.05em;white-space:nowrap}
+footer .fine{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem 2rem;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid rgba(177,138,74,.5);font-size:.88rem;color:rgba(245,240,232,.7)}
+
+@media (max-width:860px){
+  .principles .wrap,.pass .wrap{grid-template-columns:minmax(0,1fr)}
+  .principles h2{position:static}
+  .card{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero h1,.hero-sub{animation:none}
+  *{transition-duration:.01ms!important}
+}
+
+/* DETAILS, FAQ, SUBSCRIBE, TOAST */
+.details{padding:var(--pad-y) 0}
+.details h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.6vw,5rem);line-height:1;letter-spacing:-.02em;max-width:13em}
+.forms{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(2rem,5vw,5rem);margin-top:clamp(2.5rem,5vw,4rem);align-items:start}
+.forms form{border-top:1px solid var(--gold);padding-top:1.5rem}
+.forms h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.05;margin:0 0 1.5rem}
+.f{display:block;margin-bottom:1.3rem}
+.f span{display:block;font-size:.92rem;color:var(--umber);margin-bottom:.15rem}
+select.wfield{cursor:pointer}
+.forms .btn{margin-top:.5rem}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.faq{background:var(--sandstone);padding:var(--pad-y) 0}
+.faq h2{font-family:var(--serif);font-weight:400;font-size:clamp(2.4rem,5.2vw,4.6rem);line-height:1;letter-spacing:-.02em;margin-bottom:clamp(2rem,4vw,3.5rem)}
+.faq-list{max-width:50rem}
+.faq details{border-top:1px solid rgba(23,22,20,.28);padding:0}
+.faq details:last-child{border-bottom:1px solid rgba(23,22,20,.28)}
+.faq summary{list-style:none;cursor:pointer;font-family:var(--serif);font-size:clamp(1.4rem,2.4vw,1.9rem);line-height:1.15;padding:1.2rem 2.5rem 1.2rem 0;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:.3rem;top:1.05rem;font-family:var(--sans);font-size:1.6rem;color:var(--umber);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 2.5rem 1.4rem 0;max-width:40rem}
+.sub{margin-top:clamp(3rem,6vw,5rem);max-width:34rem}
+.sub label{display:block;font-family:var(--serif);font-size:1.6rem;margin-bottom:.8rem}
+.subrow{display:flex;gap:1.25rem;align-items:flex-end;flex-wrap:wrap}
+.subrow .wfield{flex:1 1 14rem;width:auto}
+footer .fine a{color:var(--sandstone)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1rem + env(safe-area-inset-bottom,0px));z-index:50;background:var(--ivory);color:var(--obsidian);border:1px solid var(--gold);padding:.9rem 1.1rem .9rem 1.4rem;display:flex;gap:1.1rem;align-items:center;max-width:calc(100% - 2rem);box-shadow:0 20px 50px -15px rgba(0,0,0,.6)}
+.toast[hidden]{display:none}
+.toast a{color:var(--obsidian);font-weight:500;border-bottom:1px solid var(--gold);white-space:nowrap;text-decoration:none}
+.toast button{background:none;border:0;cursor:pointer;font-size:1.5rem;line-height:1;padding:.2rem .4rem}
+@media (max-width:860px){.forms{grid-template-columns:minmax(0,1fr)}.toast{flex-wrap:wrap}}
+</style>
+<style>
+#anionInvitation{border:0;padding:0;width:100%;max-width:none;height:100%;max-height:none;background:var(--obsidian);color:var(--ivory);margin:0;overflow:auto}#anionInvitation::backdrop{background:var(--obsidian)}.inv-shell{min-height:100svh;position:relative;display:flex;flex-direction:column;padding:clamp(1.25rem,5vw,4rem)}.inv-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;z-index:1}.inv-close{background:none;border:1px solid var(--sandstone);color:var(--ivory);padding:.6rem 1rem;cursor:pointer}.inv-stage{max-width:760px;width:100%;margin:auto;padding:3rem 0;position:relative;z-index:1}.inv-stage h2{font:400 clamp(3rem,8vw,6rem)/1.02 var(--serif)}.inv-stage p{margin-top:1.5rem;max-width:36rem}.inv-disclosure{font-size:.85rem;color:var(--sandstone);position:relative;z-index:1}.inv-lights{position:absolute;inset:0;pointer-events:none;overflow:hidden}.inv-lights:before,.inv-lights:after{content:'';position:absolute;top:36%;left:30%;width:12px;height:12px;border-radius:50%;background:var(--ivory);box-shadow:0 0 55px 25px rgba(177,138,74,.28);animation:invMeet 5s ease-in-out forwards}.inv-lights:after{left:70%;box-shadow:0 0 55px 25px rgba(168,92,69,.28);animation-name:invMeetOther}@keyframes invMeet{to{left:49%}}@keyframes invMeetOther{to{left:51%}}.inv-stage .wfield{color:var(--ivory);border-color:var(--sandstone);background:transparent}.inv-stage label{display:block;margin:2rem 0}.inv-stage label span{display:block;margin-bottom:.5rem}body.inv-open{overflow:hidden}
+
+/* invitation + form polish */
+.inv-stage .eyebrow{font-size:.9rem;letter-spacing:.16em;text-transform:uppercase;color:var(--sandstone);margin-top:0}
+.inv-stage .editorial{font-family:var(--serif);font-size:clamp(1.6rem,3.2vw,2.4rem);line-height:1.2;max-width:28rem}
+.inv-stage .actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.25rem}
+.inv-stage .actions .btn,.inv-stage form .btn{margin:0}
+.inv-shell{padding-top:calc(clamp(1.25rem,5vw,4rem) + env(safe-area-inset-top,0px));padding-bottom:calc(clamp(1.25rem,5vw,4rem) + env(safe-area-inset-bottom,0px))}
+.inv-close:hover{border-color:var(--gold)}
+.forms fieldset{margin:0 0 1.3rem;border:0;padding:0}
+.forms fieldset legend{font-size:.92rem;color:var(--umber);padding:0;margin-bottom:.5rem}
+.forms fieldset label{display:block;margin:.35rem 0;cursor:pointer}
+.forms input[type=radio]{accent-color:var(--gold)}
+.forms .btn + .btn,.invite .btn + .btn{margin-left:.75rem}
+@media (max-width:560px){.forms .btn + .btn,.invite .btn + .btn{margin-left:0;margin-top:.75rem}}
+@media (prefers-reduced-motion:reduce){.inv-lights:before,.inv-lights:after{animation:none;left:49%}.inv-lights:after{left:51%}}
+</style><style>.footer-policies{padding:2rem 0;border-top:1px solid rgba(245,240,232,.25);margin-top:2rem;color:var(--ivory)}.footer-date-policy{max-width:50rem;font-size:.95rem}.footer-policies nav{display:flex;gap:1rem 2rem;flex-wrap:wrap;margin-top:1.5rem}.footer-policies button{background:none;border:0;border-bottom:1px solid var(--sandstone);color:var(--ivory);padding:.5rem 0;cursor:pointer;min-height:44px}.policy-dialog{width:min(92vw,800px);max-height:85svh;overflow:auto;background:var(--ivory);color:var(--obsidian);border:1px solid var(--sandstone);padding:clamp(1.5rem,4vw,3rem)}.policy-dialog::backdrop{background:rgba(23,22,20,.8)}.policy-dialog h2{font:400 clamp(2rem,5vw,3rem)/1.1 var(--serif);margin:0 0 1.5rem}.policy-dialog h3{font:400 1.6rem var(--serif);margin:1.5rem 0 .5rem}.policy-dialog p{margin:.75rem 0}.policy-dialog .policy-close{display:block;margin-left:auto;margin-bottom:1rem}</style></head>
+<body>
+
+<header class="hero grain" id="top">
+  <canvas id="field" aria-hidden="true"></canvas>
+  <div class="hero-top">
+    <a class="wordmark" href="#top" aria-label="Anion™ home">Anion<sup style="font-size:.4em;letter-spacing:0;vertical-align:top;margin-left:.2em">™</sup></a>
+    <nav aria-label="Primary">
+      <a class="link" href="#pass">Pass It Forward™</a>
+      <a class="link" href="#give">Pricing</a>
+    </nav>
+  </div>
+  <div class="hero-body">
+    <h1>Give someone a moment.</h1>
+    <div class="hero-sub">
+      <div class="hero-copy">
+        <p class="hero-tag">Not a thing. Not a gift card. A moment.</p>
+        <p>Anion™ creates experiences designed to bring people into meaningful connection.</p>
+        <div class="hero-cta">
+          <a class="btn ivory" href="#pass">Pass It Forward™</a>
+          <a class="btn light" href="#give">$125 for two · The First Table™</a>
+        </div>
+      </div>
+      <span class="hint"><i></i>Move through the light. Watch what happens when two meet.</span>
+    </div>
+  </div>
+</header>
+
+<section class="journey ivory" id="journey">
+  <div class="wrap">
+    <p class="triplet"><span>Some things are meant to be given.</span><span>Some moments are meant to be remembered.</span><span>And some experiences are meant to connect us.</span></p>
+    <p class="lede">We create experiences that connect people, and leave them with something worth talking about.</p>
+    <div class="steps" role="tablist" aria-label="How an Anion experience unfolds" id="steps">
+      <button class="step" role="tab" aria-selected="true" data-i="0"><span>Experience</span></button>
+      <button class="step" role="tab" aria-selected="false" data-i="1"><span>Connect</span></button>
+      <button class="step" role="tab" aria-selected="false" data-i="2"><span>Remember</span></button>
+      <button class="step" role="tab" aria-selected="false" data-i="3"><span>Share</span></button>
+    </div>
+    <p class="step-text" id="stepText" role="tabpanel" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="principles grain" id="philosophy">
+  <div class="wrap">
+    <h2>What we hold to when we make something.</h2>
+    <div>
+      <div class="principle">
+        <h3>Create</h3>
+        <p>Experiences people wouldn’t ordinarily encounter.</p>
+      </div>
+      <div class="principle">
+        <h3>Connect</h3>
+        <p>People, stories, cultures, communities and ideas, brought together.</p>
+      </div>
+      <div class="principle">
+        <h3>Remember</h3>
+        <p>Moments that stay with people long after the experience ends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voices grain" aria-label="What we hope people say afterward">
+  <div class="wrap">
+    <small>What we hope you say afterward</small>
+    <p class="quote" id="quote" aria-live="polite"></p>
+    <div class="dots" id="dots" role="group" aria-label="Choose a line">
+      <button aria-label="Line 1" aria-current="true"></button>
+      <button aria-label="Line 2" aria-current="false"></button>
+      <button aria-label="Line 3" aria-current="false"></button>
+      <button aria-label="Line 4" aria-current="false"></button>
+    </div>
+  </div>
+</section>
+
+<section class="pass grain" id="pass">
+  <div class="wrap">
+    <div>
+      <h2>Pass It Forward™</h2>
+      <p class="tag">An experience worth giving.</p>
+      <p class="def">An experience given from one person to another, simply because someone wanted them to feel something good. Anion creates the experience. People create the connection.</p>
+      <p class="def2">You don’t need a reason to give someone an experience. Sometimes, simply thinking of them is enough.</p>
+      <div class="pass-cta"><a class="btn ivory" href="#give">Pass It Forward™</a></div>
+
+      <div class="builder">
+        <h3 id="feelLabel">Try the gesture. What should they feel?</h3>
+        <div class="chips" id="chips" role="radiogroup" aria-labelledby="feelLabel"></div>
+        <label class="field"><span>Who is it for?</span>
+          <input id="nameIn" type="text" maxlength="40" placeholder="A name" autocomplete="off">
+        </label>
+        <label class="field"><span>Why them? (optional)</span>
+          <textarea id="noteIn" rows="2" maxlength="140" placeholder="A few words only they will understand"></textarea>
+        </label>
+        <div class="copyrow">
+          <button class="btn light" id="copyBtn" type="button">Copy this message</button>
+          <span class="status" id="status" role="status"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="card" aria-live="polite">
+      <div>
+        <div class="to">For</div>
+        <div class="who" id="cWho">you</div>
+        <div class="line" id="cLine"></div>
+        <div class="note" id="cNote" hidden></div>
+      </div>
+      <div class="sig"><span>Pass it forward.</span><b>Anion™</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="give ivory" id="give">
+  <div class="wrap">
+    <div class="give-head">
+      <div>
+        <h2>The First Table™</h2>
+        <p class="give-sub">A beautifully packaged experience designed for two people. You choose who receives it. They choose who sits beside them. Anion handles the rest.</p>
+      </div>
+      <div class="price" aria-label="125 dollars per experience">$125<small>per experience. The complete experience, nothing to add.</small></div>
+    </div>
+
+    <div class="wiz">
+      <div class="wiz-tabs" role="tablist" aria-label="How giving works" id="wtabs">
+        <button class="wtab" role="tab" aria-selected="true" aria-controls="wp0" id="wt0">Choose who</button>
+        <button class="wtab" role="tab" aria-selected="false" aria-controls="wp1" id="wt1">Write your message</button>
+        <button class="wtab" role="tab" aria-selected="false" aria-controls="wp2" id="wt2">Begin the experience</button>
+        <button class="wtab" role="tab" aria-selected="false" aria-controls="wp3" id="wt3">The reveal</button>
+      </div>
+      <div>
+        <div class="wpanel" role="tabpanel" id="wp0" aria-labelledby="wt0">
+          <h3>Who would you like to give this experience to?</h3>
+          <div class="chips ivory" id="whoChips" role="radiogroup" aria-label="Who is it for"></div>
+          <button class="link-btn" type="button" data-go="1">Next: your message</button>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wp1" aria-labelledby="wt1" hidden>
+          <h3>What would you like them to know?</h3>
+          <textarea class="wfield" id="giveMsg" rows="3" maxlength="200" placeholder="Write it in your own words" aria-label="Your message"></textarea>
+          <div class="examples" id="examples"></div>
+          <button class="link-btn" type="button" data-go="2">Next: begin the experience</button>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wp2" aria-labelledby="wt2" hidden>
+          <h3>Your experience begins with your purchase.</h3>
+          <div class="pay-big">$125</div>
+          <p class="pay-sum" id="paySum"></p>
+          <a class="btn" id="payBtn" href="https://www.paypal.com/ncp/payment/C8QVZJ4GNL8NA" target="_blank" rel="noopener noreferrer">Begin the experience — $125</a>
+          <p class="fine-print">Payment is required before Anion creates or releases the experience. Secure checkout opens in a new tab.</p>
+          <p class="fine-print">After you pay, come back and <a href="#details">tell us who it’s for</a>. We’ll carry over what you wrote here.</p>
+          <p class="fine-print" id="payStatus" role="status"></p>
+          <div style="margin-top:1.5rem"><button class="link-btn" type="button" data-go="3">See what they receive</button></div>
+        </div>
+        <div class="wpanel" role="tabpanel" id="wp3" aria-labelledby="wt3" hidden>
+          <div class="invite" id="invBefore">
+            <h4>Someone thought of you.</h4>
+            <p>They could have given you something. Instead, they chose to give you a moment. Your Anion experience is waiting.</p>
+            <button class="btn ivory" type="button" id="revealBtn">Reveal preview</button><button class="btn ivory" type="button" data-open-invitation>Enter your invitation</button>
+          </div>
+          <div class="invite" id="invAfter" hidden>
+            <h4>You were thought of.</h4>
+            <p>Your Anion Experience. The details follow.</p>
+            <p class="msg" id="invMsg"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="types">
+      <h3>Kinds of experience Anion is designing.</h3>
+      <div class="type-grid">
+        <div class="type"><h4>The Table</h4><p>A curated dining experience for two. Not simply dinner: a setting, a story, a moment of discovery, and something designed to start a conversation.</p></div>
+        <div class="type"><h4>The Unexpected</h4><p>A surprise. The recipient doesn’t know exactly what they’re receiving, only that someone thought they deserved an experience. The mystery is part of it.</p></div>
+        <div class="type"><h4>The Memory</h4><p>An experience built around remembering someone or something meaningful, from curated places, food and music to storytelling and personal touches.</p></div>
+        <div class="type"><h4>The Discovery</h4><p>An introduction to something new: a neighborhood, a cuisine, an artisan, a cultural experience, a hidden place or a creative practice.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="levels grain" id="levels">
+  <div class="wrap">
+    <h2>A level for every kind of giving.</h2>
+    <p class="intro">Every Anion experience is designed to the same standard. The level decides how far it goes.</p>
+
+    <div class="slide">
+      <label for="amt">Move the slider to see where a gift lands.</label>
+      <input type="range" id="amt" min="35" max="500" step="5" value="125">
+      <div class="readout" id="amtOut"></div>
+      <div class="readout-note" id="amtNote" aria-live="polite"></div>
+      <a class="btn ivory" id="amtGo" href="https://www.paypal.com/ncp/payment/C8QVZJ4GNL8NA" target="_blank" rel="noopener noreferrer" style="margin-top:1.25rem">Begin ANION / 02</a>
+    </div>
+
+    <div id="lvls">
+      <div class="lvl" data-lvl="1"><span class="tier">ANION / 01</span><span class="amt">$35–$50</span><div><p>A small but beautifully designed experience.</p><a class="btn light lvl-btn" href="https://www.paypal.com/ncp/payment/YA5WNXAB29N98" target="_blank" rel="noopener noreferrer">Begin ANION / 01</a></div></div>
+      <div class="lvl" data-lvl="2"><span class="tier">ANION / 02</span><span class="amt">$75–$125</span><div><p>A more immersive experience. <b>The First Table™ lives here, at $125.</b></p><a class="btn light lvl-btn" href="https://www.paypal.com/ncp/payment/C8QVZJ4GNL8NA" target="_blank" rel="noopener noreferrer">Begin ANION / 02</a></div></div>
+      <div class="lvl" data-lvl="3"><span class="tier">ANION / 03</span><span class="amt">$150–$250</span><div><p>A premium experience for one or two people.</p><a class="btn light lvl-btn" href="https://www.paypal.com/ncp/payment/RY3Q8GA8QR9G2" target="_blank" rel="noopener noreferrer">Begin ANION / 03</a></div></div>
+      <div class="lvl" data-lvl="4"><span class="tier">ANION / 04</span><span class="amt">$300–$500+</span><div><p>Signature experiences.</p><a class="btn light lvl-btn" href="https://www.paypal.com/ncp/payment/37AWZ69T9PKUL" target="_blank" rel="noopener noreferrer">Begin ANION / 04</a></div></div>
+      <div class="lvl" data-lvl="5"><span class="tier">ANION / PRIVATE</span><span class="amt">Custom</span><div><p>Corporate gifting, celebrations, executive experiences, destination experiences and private gatherings. <b>Arranged by invoice.</b></p><a class="btn light lvl-btn" href="#invoice">Request an invoice</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="details ivory" id="details">
+  <div class="wrap">
+    <h2>Once you’ve paid, tell us who it’s for.</h2>
+    <p class="give-sub">Payment begins your experience. This short form tells us who receives it and what you’d like them to know. Private and custom experiences are arranged by invoice.</p>
+    <div class="forms">
+      <form id="detailsForm">
+        <h3>Complete your experience</h3>
+        <label class="f"><span>Experience</span>
+          <select class="wfield" id="dLevel" required>
+            <option value="">Choose the one you paid for</option>
+            <option value="ANION / 01">ANION / 01</option>
+            <option value="ANION / 02">ANION / 02 (including The First Table™, $125)</option>
+            <option value="ANION / 03">ANION / 03</option>
+            <option value="ANION / 04">ANION / 04</option>
+          </select></label>
+        <label class="f"><span>Your name</span><input class="wfield" id="dName" type="text" maxlength="80" autocomplete="name" required></label>
+        <label class="f"><span>Your email</span><input class="wfield" id="dEmail" type="email" maxlength="120" autocomplete="email" required></label>
+        <label class="f"><span>Who is receiving it?</span><input class="wfield" id="dRName" type="text" maxlength="80" required></label>
+        <label class="f"><span>Their email or phone</span><input class="wfield" id="dRContact" type="text" maxlength="120" required></label>
+        <label class="f"><span>Who are they to you?</span>
+          <select class="wfield" id="dWho">
+            <option value="">Choose one</option>
+            <option>Someone you love</option>
+            <option>Someone who helped you</option>
+            <option>Someone you haven’t seen in a while</option>
+            <option>Someone going through a difficult season</option>
+            <option>Someone you want to celebrate</option>
+            <option>Someone you simply thought about today</option>
+          </select></label>
+        <label class="f"><span>What would you like them to know?</span><textarea class="wfield" id="dMsg" rows="3" maxlength="400" required></textarea></label>
+        <label class="f"><span>City and any dates that work</span><textarea class="wfield" id="dPlace" rows="2" maxlength="200" required></textarea></label>
+        <label class="f"><span>PayPal receipt or transaction ID (helps us match your payment)</span><input class="wfield" id="dRef" type="text" maxlength="60"></label>
+        <input class="hp" type="text" id="dHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <fieldset style="border:0;padding:0"><legend>Who is it from?</legend><label><input type="radio" name="identity" value="named" checked> Let them know it’s from me</label><br><label><input type="radio" name="identity" value="mystery"> Keep me a mystery</label></fieldset><button class="btn" type="submit">Send my details</button><button class="btn" type="button" data-open-invitation>Preview their invitation</button>
+        <p class="fine-print" id="dStatus" role="status"></p>
+      </form>
+
+      <form id="invoice">
+        <h3>Private and custom, by invoice</h3>
+        <p class="fine-print" style="margin:-.5rem 0 1.4rem">Corporate gifting, celebrations, executive experiences, destination experiences and private gatherings. Tell us what you have in mind and we’ll send an invoice once we’ve shaped it together.</p>
+        <label class="f"><span>Your name</span><input class="wfield" id="iName" type="text" maxlength="80" autocomplete="name" required></label>
+        <label class="f"><span>Your email</span><input class="wfield" id="iEmail" type="email" maxlength="120" autocomplete="email" required></label>
+        <label class="f"><span>Company or group (optional)</span><input class="wfield" id="iOrg" type="text" maxlength="100"></label>
+        <label class="f"><span>What is it for?</span>
+          <select class="wfield" id="iType" required>
+            <option value="">Choose one</option>
+            <option>Corporate gifting</option>
+            <option>A celebration</option>
+            <option>An executive experience</option>
+            <option>A destination experience</option>
+            <option>A private gathering</option>
+            <option>Something else</option>
+          </select></label>
+        <label class="f"><span>City, date and number of people</span><textarea class="wfield" id="iWhen" rows="2" maxlength="200" required></textarea></label>
+        <label class="f"><span>Tell us more</span><textarea class="wfield" id="iNotes" rows="3" maxlength="500"></textarea></label>
+        <input class="hp" type="text" id="iHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Request an invoice</button>
+        <p class="fine-print" id="iStatus" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="faq" id="faq">
+  <div class="wrap">
+    <h2>Good to know.</h2>
+    <div class="faq-list">
+      <details><summary>What do I actually give?</summary><p>An Anion experience: a beautifully designed invitation and reveal, and an experience built to be remembered. It isn’t a gift certificate. The recipient is your guest, so they don’t pay for anything.</p></details>
+      <details><summary>How does it work?</summary><p>Choose an experience, pay securely, then tell us who it’s for and what you’d like them to know. We send the invitation and help them choose a date.</p></details>
+      <details><summary>When am I charged?</summary><p>Your experience begins with your purchase. Payment is required before Anion creates or releases it, and is processed securely by PayPal.</p></details>
+      <details><summary>Can the date be changed?</summary><p>Once confirmed, your date is locked in. Please choose a date you can attend.</p></details>
+      <details><summary>What if I miss my date?</summary><p>If you miss your confirmed date, you have 72 hours after the missed date to choose your next date. The replacement date is final and must not be missed.</p></details>
+      <details><summary>How long is it valid?</summary><p>Experiences are valid for 5 months from the date of purchase. The date must be chosen and the experience must take place within that time.</p></details>
+      <details><summary>Where is it available?</summary><p>We’re opening in a limited number of places. Put your city in the details form and we’ll confirm availability before anything is scheduled.</p></details>
+      <details><summary>Can I order for a team or an event?</summary><p>Yes. Private experiences are arranged by invoice. <a href="#invoice">Tell us what you have in mind.</a></p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing ivory">
+  <div class="wrap">
+    <h2>Anion creates the experience.<span>People create the connection.</span></h2>
+    <div class="row">
+      <a class="btn" href="#pass">Start a Pass It Forward™</a>
+      <p>Where experiences connect us.</p>
+    </div>
+    <form class="sub" id="subForm">
+      <label for="subEmail">Hear when new experiences open</label>
+      <div class="subrow">
+        <input class="wfield" id="subEmail" type="email" maxlength="120" placeholder="Your email" autocomplete="email" required>
+        <input class="hp" type="text" id="sHp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn" type="submit">Keep me close</button>
+      </div>
+      <p class="fine-print" id="subStatus" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="grain">
+  <div class="wrap">
+    <div class="big" aria-hidden="true">Anion</div>
+    <div class="fine">
+      <span>© 2026 Anion™. All rights reserved. <a id="contactLink" hidden></a></span>
+      <span>Anion™ and Pass It Forward™ are trademarks of Anion.</span>
+    </div>
+<div class="footer-policies"><p class="footer-date-policy"><strong>Date policy</strong><br>Once confirmed, your date is locked in. If you miss your date, you have 72 hours after the missed date to choose your next date. Your replacement date is final and must not be missed.</p><nav aria-label="Policies"><button type="button" data-policy="termsPolicy">Terms and Conditions</button><button type="button" data-policy="privacyPolicy">Privacy Policy</button><button type="button" data-policy="intellectualPolicy">Intellectual Property Policy</button></nav></div>  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" hidden>
+  <span>After you pay, come back and tell us who it’s for.</span>
+  <a href="#details" id="toastGo">Complete details</a>
+  <button type="button" id="toastX" aria-label="Dismiss">&times;</button>
+</div>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- HERO: two lights that find each other ---------- */
+  var hero = document.querySelector('.hero');
+  var cv = document.getElementById('field');
+  var ctx = cv.getContext('2d');
+  var W=0,H=0,DPR=1;
+  var A={x:0,y:0}, B={x:0,y:0};
+  var ptr={x:0,y:0,on:false,last:0};
+  var motes=[];
+  var visible=true, t0=performance.now();
+
+  function resize(){
+    DPR=Math.min(window.devicePixelRatio||1,2);
+    var r=hero.getBoundingClientRect();
+    W=r.width;H=r.height;
+    cv.width=W*DPR;cv.height=H*DPR;
+    ctx.setTransform(DPR,0,0,DPR,0,0);
+    if(!A.x){A.x=W*.66;A.y=H*.38;B.x=W*.34;B.y=H*.5;}
+    if(!motes.length){for(var i=0;i<46;i++)motes.push({x:Math.random(),y:Math.random(),s:Math.random()*1.4+.4,v:Math.random()*.00006+.00002,p:Math.random()*6.28});}
+  }
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function glow(x,y,r,rgb,a){
+    var g=ctx.createRadialGradient(x,y,0,x,y,r);
+    g.addColorStop(0,'rgba('+rgb+','+a+')');
+    g.addColorStop(.45,'rgba('+rgb+','+(a*.32)+')');
+    g.addColorStop(1,'rgba('+rgb+',0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,6.2832);ctx.fill();
+  }
+  function frame(now){
+    if(!visible){requestAnimationFrame(frame);return;}
+    var t=now-t0, m=Math.min(W,H);
+    ctx.clearRect(0,0,W,H);
+
+    var ta;
+    if(ptr.on && now-ptr.last<4000){ta={x:ptr.x,y:ptr.y};}
+    else{ta={x:W*.66+Math.sin(t*.00042)*W*.14, y:H*.36+Math.cos(t*.00031)*H*.12};}
+    A.x+=(ta.x-A.x)*.07; A.y+=(ta.y-A.y)*.07;
+
+    var base={x:W*.34+Math.cos(t*.00033)*W*.13, y:H*.5+Math.sin(t*.00047)*H*.14};
+    var d0=Math.hypot(A.x-base.x,A.y-base.y);
+    var pull=ptr.on?.55:.3;
+    var bt={x:base.x+(A.x-base.x)*pull*clamp(1-d0/(W*.9),.15,1), y:base.y+(A.y-base.y)*pull*clamp(1-d0/(W*.9),.15,1)};
+    B.x+=(bt.x-B.x)*.03; B.y+=(bt.y-B.y)*.03;
+
+    var d=Math.hypot(A.x-B.x,A.y-B.y);
+    var k=clamp(1-d/(m*.75),0,1); k=k*k*(3-2*k);
+
+    ctx.globalCompositeOperation='lighter';
+    // motes
+    for(var i=0;i<motes.length;i++){
+      var p=motes[i];
+      var px=((p.x+t*p.v)%1)*W, py=(p.y+Math.sin(t*.0004+p.p)*.02)*H;
+      ctx.fillStyle='rgba(245,240,232,'+(.12+.1*Math.sin(t*.001+p.p))+')';
+      ctx.beginPath();ctx.arc(px,py,p.s,0,6.2832);ctx.fill();
+    }
+    var r=m*.3*(1+.28*k);
+    glow(B.x,B.y,r,'168,92,69',.5+.12*k);
+    glow(A.x,A.y,r*1.05,'177,138,74',.52+.12*k);
+    if(k>0){
+      var mx=(A.x+B.x)/2,my=(A.y+B.y)/2;
+      glow(mx,my,r*.95*k+20,'245,240,232',.28*k);
+      var lg=ctx.createLinearGradient(A.x,A.y,B.x,B.y);
+      lg.addColorStop(0,'rgba(177,138,74,'+(.9*k)+')');
+      lg.addColorStop(.5,'rgba(245,240,232,'+(.85*k)+')');
+      lg.addColorStop(1,'rgba(168,92,69,'+(.9*k)+')');
+      ctx.strokeStyle=lg;ctx.lineWidth=1;
+      ctx.beginPath();ctx.moveTo(A.x,A.y);
+      ctx.quadraticCurveTo(mx+Math.sin(t*.002)*14*k,my+Math.cos(t*.0017)*14*k,B.x,B.y);ctx.stroke();
+    }
+    ctx.fillStyle='rgba(245,240,232,.95)';
+    ctx.beginPath();ctx.arc(A.x,A.y,3,0,6.2832);ctx.fill();
+    ctx.beginPath();ctx.arc(B.x,B.y,3,0,6.2832);ctx.fill();
+    ctx.globalCompositeOperation='source-over';
+
+    if(reduce){return;}
+    requestAnimationFrame(frame);
+  }
+  function setPtr(e){
+    var r=hero.getBoundingClientRect();
+    ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.on=true;ptr.last=performance.now();
+  }
+  hero.addEventListener('pointermove',setPtr,{passive:true});
+  hero.addEventListener('pointerdown',setPtr,{passive:true});
+  window.addEventListener('resize',resize);
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){visible=en[0].isIntersecting;}).observe(hero);
+  }
+  resize();
+  if(reduce){
+    A.x=W*.54;A.y=H*.42;B.x=W*.44;B.y=H*.5;frame(performance.now());
+    window.addEventListener('resize',function(){frame(performance.now());});
+  } else { requestAnimationFrame(frame); }
+
+  /* ---------- JOURNEY ---------- */
+  var stepsData=[
+    'Something you wouldn’t ordinarily encounter, made with care.',
+    'People, stories, cultures, communities and ideas, in the same place at the same moment.',
+    'A moment that stays with you after the experience ends.',
+    '“You have to see what I just experienced.”'
+  ];
+  var stepEls=[].slice.call(document.querySelectorAll('.step'));
+  var stepText=document.getElementById('stepText');
+  var stepIdx=0, stepUser=false, stepTimer=null;
+  function setStep(i){
+    stepIdx=i;
+    stepEls.forEach(function(el,n){
+      el.setAttribute('aria-selected',n===i?'true':'false');
+      el.classList.toggle('done',n<i);
+    });
+    stepText.textContent=stepsData[i];
+  }
+  stepEls.forEach(function(el,n){
+    el.addEventListener('click',function(){stepUser=true;clearInterval(stepTimer);setStep(n);});
+    el.addEventListener('mouseenter',function(){if(window.matchMedia('(hover:hover)').matches){stepUser=true;clearInterval(stepTimer);setStep(n);}});
+    el.addEventListener('keydown',function(e){
+      if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();var j=(n+1)%4;stepEls[j].focus();stepUser=true;clearInterval(stepTimer);setStep(j);}
+      if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();var j2=(n+3)%4;stepEls[j2].focus();stepUser=true;clearInterval(stepTimer);setStep(j2);}
+    });
+  });
+  setStep(0);
+  if(!reduce && 'IntersectionObserver' in window){
+    var jo=new IntersectionObserver(function(en){
+      if(en[0].isIntersecting && !stepUser && !stepTimer){
+        stepTimer=setInterval(function(){
+          if(stepUser){clearInterval(stepTimer);return;}
+          if(stepIdx<3)setStep(stepIdx+1);else clearInterval(stepTimer);
+        },2600);
+      }
+    },{threshold:.5});
+    jo.observe(document.getElementById('steps'));
+  }
+
+  /* ---------- VOICES ---------- */
+  var lines=[
+    'You have to see what I just experienced.',
+    'Someone gave this to me.',
+    'I met this incredible person through Anion.',
+    'I didn’t know something like this existed.'
+  ];
+  var qEl=document.getElementById('quote');
+  var dots=[].slice.call(document.querySelectorAll('#dots button'));
+  var qi=0, qTimer=null;
+  function showQuote(i,instant){
+    qi=i;
+    function apply(){
+      qEl.textContent=lines[i];
+      dots.forEach(function(d,n){d.setAttribute('aria-current',n===i?'true':'false');});
+      qEl.classList.remove('out');
+    }
+    if(instant||reduce){apply();return;}
+    qEl.classList.add('out');
+    setTimeout(apply,380);
+  }
+  function startQ(){
+    if(reduce)return;
+    clearInterval(qTimer);
+    qTimer=setInterval(function(){showQuote((qi+1)%lines.length);},5200);
+  }
+  dots.forEach(function(d,n){d.addEventListener('click',function(){showQuote(n);startQ();});});
+  showQuote(0,true);startQ();
+
+  /* ---------- PASS IT FORWARD ---------- */
+  var feelings=[
+    {label:'Wonder',phrase:'wonder'},
+    {label:'Joy',phrase:'joy'},
+    {label:'Calm',phrase:'calm'},
+    {label:'Courage',phrase:'courage'},
+    {label:'Belonging',phrase:'like you belong'}
+  ];
+  var chipsEl=document.getElementById('chips');
+  var sel=0;
+  var nameIn=document.getElementById('nameIn'), noteIn=document.getElementById('noteIn');
+  var cWho=document.getElementById('cWho'), cLine=document.getElementById('cLine'), cNote=document.getElementById('cNote');
+  var statusEl=document.getElementById('status');
+  var chipEls=feelings.map(function(f,n){
+    var b=document.createElement('button');
+    b.type='button';b.className='chip';b.setAttribute('role','radio');
+    b.setAttribute('aria-checked',n===0?'true':'false');
+    b.textContent=f.label;
+    b.addEventListener('click',function(){sel=n;render();});
+    chipsEl.appendChild(b);
+    return b;
+  });
+  function msg(){
+    var nm=nameIn.value.trim()||'you';
+    var s='For '+nm+': someone wanted you to feel '+feelings[sel].phrase+'.';
+    var note=noteIn.value.trim();
+    if(note)s+=' “'+note+'”';
+    return s+' — Pass It Forward™, by Anion™';
+  }
+  function render(){
+    chipEls.forEach(function(c,n){c.setAttribute('aria-checked',n===sel?'true':'false');});
+    cWho.textContent=nameIn.value.trim()||'you';
+    cLine.textContent='Someone wanted you to feel '+feelings[sel].phrase+'.';
+    var note=noteIn.value.trim();
+    cNote.hidden=!note;
+    cNote.textContent=note?'“'+note+'”':'';
+    statusEl.textContent='';
+  }
+  nameIn.addEventListener('input',render);
+  noteIn.addEventListener('input',render);
+  render();
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var text=msg();
+    function fallback(){
+      try{
+        var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+        document.body.appendChild(ta);ta.select();var ok=document.execCommand('copy');document.body.removeChild(ta);
+        statusEl.textContent=ok?'Copied. Send it to someone.':'Copy didn’t work here. Select the card text and copy it.';
+      }catch(e){statusEl.textContent='Copy didn’t work here. Select the card text and copy it.';}
+    }
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){statusEl.textContent='Copied. Send it to someone.';},fallback);
+      } else fallback();
+    }catch(e){fallback();}
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function $(id){return document.getElementById(id);}
+
+  /* ---------- GIVE WIZARD ---------- */
+  var tabs=[0,1,2,3].map(function(i){return $('wt'+i);});
+  var panels=[0,1,2,3].map(function(i){return $('wp'+i);});
+  var cur=0;
+  function showTab(i){
+    cur=i;
+    tabs.forEach(function(t,n){
+      t.setAttribute('aria-selected',n===i?'true':'false');
+      t.classList.toggle('done',n<i);
+      panels[n].hidden=(n!==i);
+    });
+    if(i===2)renderPay();
+  }
+  tabs.forEach(function(t,n){
+    t.addEventListener('click',function(){showTab(n);});
+    t.addEventListener('keydown',function(e){
+      var j=null;
+      if(e.key==='ArrowDown'||e.key==='ArrowRight')j=(n+1)%4;
+      if(e.key==='ArrowUp'||e.key==='ArrowLeft')j=(n+3)%4;
+      if(j!==null){e.preventDefault();tabs[j].focus();showTab(j);}
+    });
+  });
+  [].forEach.call(document.querySelectorAll('[data-go]'),function(b){
+    b.addEventListener('click',function(){showTab(parseInt(b.getAttribute('data-go'),10));});
+  });
+
+  var whoOpts=['Someone you love','Someone who helped you','Someone you haven’t seen in a while','Someone going through a difficult season','Someone you want to celebrate','Someone you simply thought about today'];
+  var who=-1;
+  var whoEl=$('whoChips');
+  var whoBtns=whoOpts.map(function(w,n){
+    var b=document.createElement('button');
+    b.type='button';b.className='chip';b.setAttribute('role','radio');b.setAttribute('aria-checked','false');
+    b.textContent=w;
+    b.addEventListener('click',function(){
+      who=n;
+      whoBtns.forEach(function(x,k){x.setAttribute('aria-checked',k===n?'true':'false');});
+    });
+    whoEl.appendChild(b);return b;
+  });
+
+  var msgEl=$('giveMsg');
+  var examples=['I saw this and thought of you. I wanted you to have something beautiful to remember.','You have given so much to other people. This one is for you.','No reason. I just wanted you to experience something wonderful.'];
+  var exEl=$('examples');
+  examples.forEach(function(t){
+    var b=document.createElement('button');
+    b.type='button';b.className='link-btn';b.textContent='“'+t+'”';
+    b.addEventListener('click',function(){msgEl.value=t;msgEl.focus();});
+    exEl.appendChild(b);
+  });
+
+  function renderPay(){
+    var s='For: '+(who>=0?whoOpts[who].toLowerCase():'someone you’ll choose')+'.';
+    var m=msgEl.value.trim();
+    s+=m?' Your message: “'+m+'”':' Add a message in the previous step so they know why.';
+    $('paySum').textContent=s;
+    $('payStatus').textContent='';
+  }
+  $('revealBtn').addEventListener('click',function(){
+    var m=msgEl.value.trim();
+    $('invMsg').textContent=m?'“'+m+'”':'“No reason. I just wanted you to experience something wonderful.”';
+    $('invBefore').hidden=true;$('invAfter').hidden=false;
+  });
+  tabs[3].addEventListener('click',function(){$('invBefore').hidden=false;$('invAfter').hidden=true;});
+  [].forEach.call(document.querySelectorAll('[data-go="3"]'),function(b){
+    b.addEventListener('click',function(){$('invBefore').hidden=false;$('invAfter').hidden=true;});
+  });
+
+  /* ---------- LEVELS ---------- */
+  var amt=$('amt'), out=$('amtOut'), note=$('amtNote');
+  var lvlEls=[].slice.call(document.querySelectorAll('.lvl'));
+  var links={1:'https://www.paypal.com/ncp/payment/YA5WNXAB29N98',2:'https://www.paypal.com/ncp/payment/C8QVZJ4GNL8NA',3:'https://www.paypal.com/ncp/payment/RY3Q8GA8QR9G2',4:'https://www.paypal.com/ncp/payment/37AWZ69T9PKUL'};
+  function lvlFor(v){return v<=60?1:v<=137?2:v<=275?3:4;}
+  var notes={
+    1:'A small but beautifully designed experience.',
+    2:'A more immersive experience.',
+    3:'A premium experience for one or two people.',
+    4:'A signature experience.'
+  };
+  function updAmt(){
+    var v=parseInt(amt.value,10), l=lvlFor(v);
+    out.textContent='$'+v+(v>=500?'+':'')+' · ANION / 0'+l;
+    note.textContent=(v===125?'This is The First Table™. ':'')+notes[l];
+    lvlEls.forEach(function(el){el.classList.toggle('on',parseInt(el.getAttribute('data-lvl'),10)===l);});
+    var go=$('amtGo');go.href=links[l];go.textContent='Begin ANION / 0'+l;
+  }
+  amt.addEventListener('input',updAmt);updAmt();
+
+
+})();
+</script>
+<script>
+(function(){
+  /* ===== EDIT BEFORE LAUNCH =====
+     contactEmail: where forms are emailed if no form service is set (e.g. hello@yourdomain.com)
+     formEndpoint: a form service URL (Formspree, Getform, etc.) that accepts JSON POSTs
+     analyticsId : a Google Analytics 4 ID such as G-XXXXXXXXXX                              */
+  var ANION_CONFIG={contactEmail:'',formEndpoint:'',analyticsId:''};
+
+  function $(id){return document.getElementById(id);}
+  var utm='';
+  try{
+    var q=new URLSearchParams(location.search),parts=[];
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){if(q.get(k))parts.push(k+'='+q.get(k));});
+    if(parts.length){utm=parts.join('&');sessionStorage.setItem('anion_utm',utm);}
+    else{utm=sessionStorage.getItem('anion_utm')||'';}
+  }catch(e){}
+
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){window.dataLayer.push(arguments);}
+  if(ANION_CONFIG.analyticsId){
+    try{
+      var gs=document.createElement('script');gs.async=true;
+      gs.src='https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(ANION_CONFIG.analyticsId);
+      document.head.appendChild(gs);gtag('js',new Date());gtag('config',ANION_CONFIG.analyticsId);
+    }catch(e){}
+  }
+  function track(name,params){try{if(ANION_CONFIG.analyticsId)gtag('event',name,params||{});}catch(e){}}
+
+  if(ANION_CONFIG.contactEmail){
+    var cl=$('contactLink');cl.href='mailto:'+ANION_CONFIG.contactEmail;cl.textContent=ANION_CONFIG.contactEmail;cl.hidden=false;
+  }
+
+  /* ----- checkout clicks, toast, prefill ----- */
+  var levelOf={YA5WNXAB29N98:'01',C8QVZJ4GNL8NA:'02',RY3Q8GA8QR9G2:'03','37AWZ69T9PKUL':'04'};
+  var lastLevel='';
+  var toast=$('toast'), toastTimer=null;
+  function prefill(){
+    var chip=document.querySelector('#whoChips [aria-checked="true"]'), sel=$('dWho');
+    if(chip&&sel&&!sel.value){[].forEach.call(sel.options,function(o){if(o.text===chip.textContent)sel.value=o.value;});}
+    var m=$('giveMsg'), dm=$('dMsg');
+    if(m&&dm&&!dm.value&&m.value.trim())dm.value=m.value.trim();
+    if(lastLevel&&$('dLevel')&&!$('dLevel').value)$('dLevel').value='ANION / '+lastLevel;
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href*="paypal.com/ncp"]');
+    if(a){
+      var id=a.href.split('/').pop().split('?')[0];
+      lastLevel=levelOf[id]||'';
+      track('begin_checkout',{item_name:'ANION / '+lastLevel,source:utm});
+      clearTimeout(toastTimer);
+      toastTimer=setTimeout(function(){toast.hidden=false;},900);
+      return;
+    }
+    var d=e.target.closest&&e.target.closest('a[href="#details"]');
+    if(d){prefill();if(d.id==='toastGo')toast.hidden=true;}
+  });
+  $('toastX').addEventListener('click',function(){toast.hidden=true;});
+
+  /* ----- sending ----- */
+  function send(kind,data,statusEl,form,okMsg){
+    data.kind=kind;data.source=utm;data.page=location.href.split('#')[0];
+    var lines=Object.keys(data).filter(function(k){return data[k];}).map(function(k){return k+': '+data[k];}).join('\n');
+    if(ANION_CONFIG.formEndpoint){
+      statusEl.textContent='Sending…';
+      fetch(ANION_CONFIG.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+        .then(function(r){if(!r.ok)throw new Error('bad');statusEl.textContent=okMsg;form.reset();track('generate_lead',{form:kind});})
+        .catch(function(){statusEl.textContent='That didn’t send. Please try again in a moment.';});
+    }else if(ANION_CONFIG.contactEmail){
+      statusEl.textContent='Your email app should open with everything filled in. Press send to finish.';
+      track('generate_lead',{form:kind});
+      window.location.href='mailto:'+ANION_CONFIG.contactEmail+'?subject='+encodeURIComponent('Anion: '+kind)+'&body='+encodeURIComponent(lines);
+    }else{
+      statusEl.textContent='This form isn’t connected yet. A contact email or form address needs to be added before launch.';
+    }
+  }
+  function v(id){var e=$(id);return e?e.value.trim():'';}
+
+  $('detailsForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(v('dHp'))return;
+    send('order-details',{level:v('dLevel'),giver_name:v('dName'),giver_email:v('dEmail'),recipient_name:v('dRName'),recipient_contact:v('dRContact'),relationship:v('dWho'),giver_visibility:document.querySelector('[name=identity]:checked').value,message:v('dMsg'),city_and_dates:v('dPlace'),paypal_reference:v('dRef')},$('dStatus'),this,'Thank you. We have your details and will be in touch soon.');
+  });
+  $('invoice').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(v('iHp'))return;
+    send('private-invoice-request',{name:v('iName'),email:v('iEmail'),organization:v('iOrg'),occasion:v('iType'),city_date_size:v('iWhen'),notes:v('iNotes')},$('iStatus'),this,'Thank you. We’ll be in touch about your invoice.');
+  });
+  $('subForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(v('sHp'))return;
+    send('subscribe',{email:v('subEmail')},$('subStatus'),this,'You’re on the list. We’ll write when something opens.');
+  });
+})();
+</script>
+<dialog id="anionInvitation" aria-labelledby="invTitle"><div class="inv-shell"><div class="inv-lights" aria-hidden="true"></div><div class="inv-top"><span class="wordmark">Anion™</span><button class="inv-close" type="button" id="closeInvitation">Close invitation</button></div><div class="inv-stage" id="invStage"></div><p class="inv-disclosure">This is a preview of the invitation your recipient will receive. Nothing you enter here is saved or sent.</p></div></dialog><script>
+(function(){
+const modal=document.getElementById('anionInvitation'),stage=document.getElementById('invStage');let opener=null,companion='',step=0;
+function el(tag,text,cls){const node=document.createElement(tag);node.textContent=text;if(cls)node.className=cls;return node;}
+function val(id){return document.getElementById(id).value.trim();}
+function button(text,action){const b=el('button',text,'btn ivory');b.type='button';b.addEventListener('click',action);return b;}
+function render(){stage.replaceChildren();const title=el('h2','');title.id='invTitle';title.tabIndex=-1;stage.append(title);const actions=el('div','','actions');
+if(step===0){title.textContent='Someone thought of you.';const name=val('dRName');if(name)stage.append(el('p','For '+name+'.','eyebrow'));stage.append(el('p','You’ve been given an Anion Experience. A moment created for two.','editorial'));stage.append(el('p','You don’t need to know everything yet. You only need to decide who you want beside you.'));
+const mystery=document.querySelector('[name=identity]:checked').value==='mystery';const giver=val('dName');if(!mystery&&giver)stage.append(el('p','From '+giver+'.'));if(mystery)stage.append(el('p','You don’t need to know who. Just choose who comes with you.'));const message=val('dMsg')||val('giveMsg');if(message)stage.append(el('p',message,'editorial'));actions.append(button('Accept your Anion',()=>{step=1;render();}));}
+if(step===1){title.textContent='Your experience is waiting.';stage.append(el('p','Someone chose to give you a moment instead of a thing.','editorial'));actions.append(button('Choose who comes with you',()=>{step=2;render();}));}
+if(step===2){title.textContent='Now choose your person.';stage.append(el('p','Who would you like beside you?','editorial'));const form=document.createElement('form');const label=document.createElement('label');label.append(el('span','Their first name — preview only'));const input=document.createElement('input');input.className='wfield';input.id='previewCompanion';input.type='text';input.maxLength=80;input.required=true;input.value=companion;label.htmlFor=input.id;label.append(input);form.append(label);const b=el('button','Discover your Anion','btn ivory');b.type='submit';form.append(b);form.addEventListener('submit',e=>{e.preventDefault();if(!input.value.trim()){input.setCustomValidity('Enter a first name for this preview.');input.reportValidity();return;}companion=input.value.trim();step=3;render();});input.addEventListener('input',()=>input.setCustomValidity(''));stage.append(form);}
+if(step===3){title.textContent='The First Table™';stage.append(el('p','A curated experience for two.','editorial'));stage.append(el('p',companion?'You and '+companion+'. Two seats. A moment to share.':'Two seats. A moment to share.'));stage.append(el('p','Your confirmed date, time, location, inclusions and preparation instructions will unfold here. Those operational details are not connected in this preview.'));stage.append(el('p','Once confirmed, your date is locked in. If you miss your date, you have 72 hours after the missed date to choose your next date. Your replacement date is final and must not be missed.','fine-print'));actions.append(button('Preview after the experience',()=>{step=4;render();}));}
+if(step===4){title.textContent='Who will you think of?';stage.append(el('p','Someone gave you a moment, and you shared it with someone you chose. Perhaps one day, you’ll want to give someone else one.','editorial'));stage.append(el('p','No obligation. Only if you want to.'));actions.append(button('Give an Anion Experience',()=>{close();location.hash='give';}));actions.append(button('Open invitation again',()=>{step=0;companion='';render();}));}
+stage.append(actions);title.focus();}
+function close(){modal.close();document.body.classList.remove('inv-open');companion='';if(opener)opener.focus();}
+document.querySelectorAll('[data-open-invitation]').forEach(b=>b.addEventListener('click',()=>{opener=b;step=0;companion='';modal.showModal();document.body.classList.add('inv-open');render();}));document.getElementById('closeInvitation').addEventListener('click',close);modal.addEventListener('cancel',e=>{e.preventDefault();close();});
+})();
+</script>
+<dialog class="policy-dialog" id="termsPolicy" aria-labelledby="termsTitle"><button class="btn policy-close" type="button" data-close-policy>Close</button><h2 id="termsTitle">Terms and Conditions</h2><h3>The Anion experience</h3><p>The First Table™ is presented as a $125 experience for two. Experience arrangements and confirmed details are provided by Anion. Private and custom experiences are arranged by invoice.</p><h3>Payment and invitation</h3><p>Payment is required before Anion creates or releases an experience. Payment is processed through the linked PayPal checkout. Purchasers must provide the recipient and arrangement details needed to fulfill the invitation.</p><h3>Confirmed dates</h3><p>Once confirmed, your date is locked in. Please choose a date you can attend.</p><h3>If you miss your date</h3><p>If you miss your confirmed date, you have 72 hours after the missed date to choose your next date. This is your one opportunity to choose a replacement date. The replacement date is final and must not be missed.</p><h3>Validity</h3><p>Experiences are valid for five months from the date of purchase. The date must be chosen and the experience must take place within that time.</p><h3>Completed experiences</h3><p>Once an experience has taken place, it cannot be refunded.</p></dialog>
+<dialog class="policy-dialog" id="privacyPolicy" aria-labelledby="privacyTitle"><button class="btn policy-close" type="button" data-close-policy>Close</button><h2 id="privacyTitle">Privacy Policy</h2><h3>Information requested</h3><p>The website requests information used to arrange experiences and respond to inquiries, including giver and recipient contact details, personal messages, city and date preferences, payment references, and private-experience inquiry details.</p><h3>How information is used</h3><p>Information submitted to Anion is used to respond to the request, arrange the invitation and experience, and match payment details. Please provide recipient information only when you are authorized to share it, and avoid including unnecessary sensitive information.</p><h3>Mystery giving</h3><p>The mystery-giving option requests that the giver’s identity be withheld from the recipient. Anion still needs the giver’s information to arrange the experience. A personal message may reveal the giver’s identity.</p><h3>Payment and external services</h3><p>Payment takes place on PayPal’s website, under PayPal’s privacy practices. This page does not collect card details. Fonts are loaded from Google Fonts, which receives the browser requests needed to serve them.</p><h3>Browser storage and previews</h3><p>The website code uses session storage for campaign-source information. The invitation preview temporarily holds a companion name in page memory; it clears that value when the preview closes and does not submit it as a recipient selection.</p><h3>Forms and analytics</h3><p>Form delivery depends on a configured submission service or email destination. The page reports when a form is not connected. Analytics collection depends on whether an analytics ID has been configured.</p></dialog>
+<dialog class="policy-dialog" id="intellectualPolicy" aria-labelledby="intellectualTitle"><button class="btn policy-close" type="button" data-close-policy>Close</button><h2 id="intellectualTitle">Intellectual Property Policy</h2><h3>Anion brand</h3><p>Anion™ and Pass It Forward™ are identified on this website as trademarks of Anion. No claim of registered trademark status is made by the ™ symbol.</p><h3>Content and brand use</h3><p>Viewing this website or purchasing an experience does not grant permission to reproduce the Anion brand, invitation designs, original copy or artwork for commercial use. Obtain permission from the relevant rights holder before using protected material.</p><h3>Third-party material</h3><p>Third-party fonts and other materials remain subject to their respective licenses and rights. This policy does not claim ownership of third-party work.</p><h3>Personal invitations</h3><p>You may share your own invitation with your chosen companion. Do not publish private invitation codes or represent yourself as Anion.</p></dialog>
+<script>(function(){let trigger=null;document.querySelectorAll('[data-policy]').forEach(button=>button.addEventListener('click',()=>{trigger=button;document.getElementById(button.dataset.policy).showModal();}));document.querySelectorAll('.policy-dialog').forEach(dialog=>{dialog.querySelector('[data-close-policy]').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{if(trigger)trigger.focus();});});})();</script>
+</body>
+</html>
